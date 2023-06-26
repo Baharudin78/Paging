@@ -9,6 +9,7 @@ import com.baharudin.pagingcaching.data.local.BeerDatabase
 import com.baharudin.pagingcaching.data.local.model.BeerEntity
 import com.baharudin.pagingcaching.data.remote.mappers.toBeerEntity
 import com.baharudin.pagingcaching.data.remote.service.BeerApi
+import kotlinx.coroutines.delay
 import okio.IOException
 import retrofit2.HttpException
 
@@ -37,6 +38,7 @@ class BeerRemoteMediator(
                     }
                 }
             }
+            delay(2000L)
             val beers = beerApi.getBeers(
                 page = loadKey,
                 pageCount = state.config.pageSize
